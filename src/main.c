@@ -1,8 +1,7 @@
+#include "csvparser.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#define DEFAULT_DELIMITER ","
 
 int main(int argc, char **argv) {
   FILE *f;
@@ -31,6 +30,8 @@ int main(int argc, char **argv) {
     fprintf(stderr, "Could not read file \n");
     perror(argv[1]);
     exit(2);
+  } else {
+    parse_csv(f, delimiter);
   }
 
   return 0;
