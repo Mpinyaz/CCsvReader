@@ -1,7 +1,7 @@
 #ifndef CSVPARSER_H
 #define CSVPARSER_H
+#include <stdbool.h>
 #include <stdio.h>
-
 #define DEFAULT_DELIMITER ","
 typedef struct {
   char **fields;

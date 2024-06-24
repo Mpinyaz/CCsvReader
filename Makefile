@@ -16,7 +16,7 @@ all: $(OUT)
 # Rule to compile the source file
 $(OUT): $(SRC)
 	@mkdir -p $(BUILD_DIR)
-	$(CC) $(CFLAGS) -o $(OUT) $(SRC)
+	$(CC) $(CFLAGS) $(SRC) -o $(OUT)
 
 # Rule to clean the build directory
 clean:
