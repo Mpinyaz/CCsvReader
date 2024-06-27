@@ -2,6 +2,16 @@
 #include <stdlib.h>
 #include <string.h>
 
+FILE *csv_fileReader(const char *filename) {
+  FILE *f = fopen(filename, "r");
+  if (f == NULL) {
+    fprintf(stderr, "Could not read file \n");
+    perror(filename);
+    exit(2);
+  }
+  return f;
+}
+
 size_t get_max_line_length(FILE *f) {
   size_t max_length = 0;
   char line[1024]; // Temporary buffer for reading lines
