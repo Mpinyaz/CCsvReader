@@ -1,12 +1,8 @@
 #include "csvparser.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-int main(int argc, char **argv) {
-  FILE *f;
+int main(int argc, char *argv[]) {
+  FILE *file;
   const char *delimiter = DEFAULT_DELIMITER;
-
   if (argc < 2 || argc > 4) {
     printf("Usage: %s <filename> [--delimiter <delim> | -d <delim>]\n",
            argv[0]);
@@ -24,15 +20,7 @@ int main(int argc, char **argv) {
       }
     }
   }
-
-  f = fopen(argv[1], "r");
-  if (f == NULL) {
-    fprintf(stderr, "Could not read file \n");
-    perror(argv[1]);
-    exit(2);
-  } else {
-    parse_csv(f, delimiter);
-  }
+  file = csv_fileReader(argv[1]);
 
   return 0;
 }
