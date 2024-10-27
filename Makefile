@@ -1,7 +1,7 @@
 # Define the compiler and compiler flags
 CC = gcc
 CFLAGS = -Wall -g3 -Wextra
-
+DBG = lldb
 # Define the source and build directories
 SRC_DIR = src
 BUILD_DIR = build
@@ -13,6 +13,14 @@ OUT = $(BUILD_DIR)/csvrdr
 # Rule to build the program
 all: $(OUT)
 
+build-dir:
+	if [ ! -d build]; then mkdir build; fi
+build-main:
+	$(CC) $(CFLAGS) -o $(OUT) $(SRC)
+build-test:
+	$(CC) $(CFLAGS) -o build/test src/test.c
+debug:
+	$(DBG) ./build/main
 # Rule to compile the source file
 $(OUT): $(SRC)
 	@mkdir -p $(BUILD_DIR)
